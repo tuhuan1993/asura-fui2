@@ -17,6 +17,8 @@ public abstract class AbstractMorrisChart implements IUIChart {
 	protected boolean labelVar;
 	protected boolean valueVar;
 
+	protected boolean xLabels;
+
 	public String getId() {
 		return this.id;
 	}
@@ -52,7 +54,7 @@ public abstract class AbstractMorrisChart implements IUIChart {
 		list.add("  xkey: " + getScriptFields(new String[] { chart.getKeyName(paras) }, this.keyVar));
 		list.add("  ykeys:  " + getScriptFields(chart.getValueNames(paras), this.valueVar));
 		list.add("  labels:  " + getScriptFields(chart.getLabels(paras), this.labelVar));
-		// list.add(" xLabels: 'day'");
+		list.add("  xLabels:  '" + chart.getxLabels(paras)+ "'");
 
 		if (getOptions() != null) {
 			for (String op : getOptions()) {

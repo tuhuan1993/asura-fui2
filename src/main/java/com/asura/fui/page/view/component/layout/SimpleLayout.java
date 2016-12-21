@@ -18,12 +18,14 @@ import com.asura.fui.page.view.html.SimpleHtml;
 import com.asura.fui.service.dispatch.FuiUrl;
 import com.asura.fui.util.ParameterUtil;
 import com.asura.tools.util.StringUtil;
+import com.thoughtworks.xstream.persistence.FileStreamStrategy;
 
 public class SimpleLayout implements IUILayout {
 	private LayoutValueSet valueSet;
 	private HashSet<String> used;
 	private String htmlAttrs;
 	private String bodyAttrs;
+	private boolean firstColumn;
 
 	public void merge(IUILayout layout) {
 		SimpleLayout sl = (SimpleLayout) layout;
@@ -174,6 +176,18 @@ public class SimpleLayout implements IUILayout {
 			} else if ((this.valueSet.getLayoutValue(key) != null)
 					&& (this.valueSet.getLayoutValue(key).getPos() == 0)) {
 				css.addIgnore("float", "left");
+			}
+			
+			if (this.getValueSet().getColumn(key) == 1) {
+				firstColumn = true;
+			} else {
+				firstColumn = false;
+			}
+			
+			this.getValueSet().getRows(key);
+			
+			if (firstColumn == true) {
+				css.addIgnore("clear", "both");
 			}
 
 			if (!(StringUtil.isNullOrEmpty(css.toStyle(paras)))) {

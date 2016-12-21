@@ -18,6 +18,8 @@ public class ChartData {
 	private String dataVar;
 	private String keyName;
 	private String valueNames;
+	private String xLabels;
+
 
 	public ChartData() {
 		this.mmap = new LinkedHashMap<>();
@@ -32,6 +34,14 @@ public class ChartData {
 		return list.toArray(new String[0]);
 	}
 
+	public String getxLabels(FrontData paras) {
+		return this.xLabels;
+	}
+	
+	public void setxLabels(String xLabels) {
+		this.xLabels = xLabels;
+	}
+	
 	public String getKeyName(FrontData paras) {
 		if (StringUtil.isNullOrEmpty(this.keyName)) {
 			this.keyName = "x1";

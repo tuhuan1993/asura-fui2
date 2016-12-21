@@ -6,6 +6,7 @@ public class ChartSimpleProvider implements IChartProvider {
 	private String dataVar;
 	private String keyName;
 	private String valueNames;
+	private String xLabels;
 
 	@Override
 	public ChartData provide() {
@@ -13,8 +14,17 @@ public class ChartSimpleProvider implements IChartProvider {
 		cd.setKeyName(this.keyName);
 		cd.setValueNames(this.valueNames);
 		cd.setDataVar(this.dataVar);
+		cd.setxLabels(this.xLabels);
 
 		return cd;
+	}
+	
+	public String getxLabels() {
+		return this.xLabels;
+	}
+
+	public void setxLabels(String xLabels) {
+		this.xLabels = xLabels;
 	}
 
 	public String getDataVar() {

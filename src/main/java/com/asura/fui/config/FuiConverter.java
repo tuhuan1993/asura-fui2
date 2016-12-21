@@ -232,6 +232,7 @@ public class FuiConverter {
 		xs.aliasAttribute(ChartSimpleProvider.class, "label", "label");
 		xs.aliasAttribute(ChartSimpleProvider.class, "keyName", "key-name");
 		xs.aliasAttribute(ChartSimpleProvider.class, "valueNames", "value-names");
+		xs.aliasAttribute(ChartSimpleProvider.class, "xLabels", "xLabels");
 
 		xs.alias("chart-text-provider", ChartTextProvider.class);
 		xs.aliasAttribute(ChartTextProvider.class, "key", "key");
