@@ -25,7 +25,6 @@ public class SimpleLayout implements IUILayout {
 	private HashSet<String> used;
 	private String htmlAttrs;
 	private String bodyAttrs;
-	private boolean firstColumn;
 
 	public void merge(IUILayout layout) {
 		SimpleLayout sl = (SimpleLayout) layout;
@@ -179,17 +178,11 @@ public class SimpleLayout implements IUILayout {
 			}
 			
 			if (this.getValueSet().getColumn(key) == 1) {
-				firstColumn = true;
-			} else {
-				firstColumn = false;
-			}
+				css.addIgnore("clear", "both");
+			} 
 			
 			this.getValueSet().getRows(key);
 			
-			if (firstColumn == true) {
-				css.addIgnore("clear", "both");
-			}
-
 			if (!(StringUtil.isNullOrEmpty(css.toStyle(paras)))) {
 				div.addAttr("style", css.toStyle(paras));
 			}
