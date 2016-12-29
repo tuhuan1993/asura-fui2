@@ -18,7 +18,6 @@ import com.asura.fui.page.view.html.SimpleHtml;
 import com.asura.fui.service.dispatch.FuiUrl;
 import com.asura.fui.util.ParameterUtil;
 import com.asura.tools.util.StringUtil;
-import com.thoughtworks.xstream.persistence.FileStreamStrategy;
 
 public class SimpleLayout implements IUILayout {
 	private LayoutValueSet valueSet;
