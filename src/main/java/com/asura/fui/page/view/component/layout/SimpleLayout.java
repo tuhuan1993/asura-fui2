@@ -175,7 +175,13 @@ public class SimpleLayout implements IUILayout {
 					&& (this.valueSet.getLayoutValue(key).getPos() == 0)) {
 				css.addIgnore("float", "left");
 			}
-
+			
+			if (this.getValueSet().getColumn(key) == 1) {
+				css.addIgnore("clear", "both");
+			} 
+			
+			this.getValueSet().getRows(key);
+			
 			if (!(StringUtil.isNullOrEmpty(css.toStyle(paras)))) {
 				div.addAttr("style", css.toStyle(paras));
 			}

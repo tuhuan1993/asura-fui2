@@ -15,6 +15,7 @@ public class LayoutValueSet {
 	private HashMap<String, LayoutValue> map;
 	private HashMap<String, FuiCss> styleMap;
 	private int width;
+	private HashMap<String, Integer> columnMap;
 
 	public LayoutValueSet() {
 		this.values = new ArrayList<>();
@@ -85,6 +86,19 @@ public class LayoutValueSet {
 
 		return new FuiCss();
 	}
+	
+	public int getColumn(String key){
+		if (this.columnMap == null) {
+			this.columnMap = new HashMap<>();
+			for (LayoutValue value : this.values) {
+				this.columnMap.put(value.getKey(), value.getColumn());
+			}
+		}
+		if (this.columnMap.containsKey(key)) {
+			return this.columnMap.get(key);
+		}
+		return 0;
+	}
 
 	public String getTag(String key) {
 		initial();
@@ -118,7 +132,7 @@ public class LayoutValueSet {
 		}
 		return new Integer[0];
 	}
-
+	
 	public String[] getKeys(String parent, int row) {
 		return this.children.get(parent).get(Integer.valueOf(row)).toArray(new String[0]);
 	}
@@ -191,7 +205,6 @@ public class LayoutValueSet {
 					this.children.get(value.getParent()).put(Integer.valueOf(value.getRow()), new ArrayList<String>());
 				}
 				this.children.get(value.getParent()).get(Integer.valueOf(value.getRow())).add(value.getKey());
-
 				this.map.put(value.getKey(), value);
 			}
 		}
