@@ -37,15 +37,16 @@ public class PageLoader {
 			File directory = new File(page_directory);
 			if (directory.exists() && directory.isDirectory()) {
 				cache.cleanUp();
+				System.out.println("begin to load pages from directory " + directory.getAbsolutePath());
 				for (File page : directory.listFiles()) {
 					if (page.getName().endsWith(".xml")) {
 						String key = page.getName();
 						String content = FileUtil.getFileContent(page.getPath(), "utf8");
 						System.out.println("Loading page key: " + key);
-						System.out.println("Loading page value: " + content);
 						cache.put(key, content);
 					}
 				}
+				System.out.println("end to load pages");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

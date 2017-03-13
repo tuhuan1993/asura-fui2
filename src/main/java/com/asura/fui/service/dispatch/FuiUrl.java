@@ -100,4 +100,10 @@ public class FuiUrl {
 		}
 		return "www";
 	}
+
+	@Override
+	public String toString() {
+		return "http://" + server + ":" + port + cPath + (suffix.startsWith("/") ? suffix : "/" + suffix);
+	}
+
 }
