@@ -44,10 +44,10 @@ public class SimpleLayout implements IUILayout {
 		html.getHead().addJSRef(url.toUrlBase() + "/js/common.js");
 		html.getHead().addJSRef(url.toUrlBase() + "/js/bootstrap.min.js");
 		html.getHead().addJSRef(url.toUrlBase() + "/js/dragon/excanvas.js");
-		html.getHead().addJSRef(url.toUrlBase() + "/js/dragon/dragonchart.skins.min.js");
 		html.getHead().addJSRef(url.toUrlBase() + "/js/dragon/dragonchart.core.min.js");
 		html.getHead().addJSRef(url.toUrlBase() + "/js/dragon/dragonchart.pie3d.min.js");
 		html.getHead().addJSRef(url.toUrlBase() + "/js/dragon/dragonchart.line.min.js");
+		//html.getHead().addJSRef(url.toUrlBase() + "/js/dragon/dragonchart.skins.min.js");
 		html.getHead().addJSRef(url.toUrlBase() + "/js/raphael-min.js");
 		html.getHead().addJSRef(url.toUrlBase() + "/js/morris-0.4.3.min.js");
 		html.getHead().addJSRef("http://code.jquery.com/ui/1.10.4/jquery-ui.js");
@@ -175,13 +175,13 @@ public class SimpleLayout implements IUILayout {
 					&& (this.valueSet.getLayoutValue(key).getPos() == 0)) {
 				css.addIgnore("float", "left");
 			}
-			
+
 			if (this.getValueSet().getColumn(key) == 1) {
 				css.addIgnore("clear", "both");
-			} 
-			
+			}
+
 			this.getValueSet().getRows(key);
-			
+
 			if (!(StringUtil.isNullOrEmpty(css.toStyle(paras)))) {
 				div.addAttr("style", css.toStyle(paras));
 			}
