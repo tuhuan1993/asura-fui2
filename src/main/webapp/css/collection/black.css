@@ -1,0 +1,15 @@
+a:hover,
+.nav li ul li a:hover { color: #444; }
+
+#header{
+    background: rgba(30, 30, 30, 0.95);
+}
+
+.button, .button:visited {
+	background-color: #999; 
+}
+
+.button:hover { 
+	background-color: #777; 
+}
+

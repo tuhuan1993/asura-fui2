@@ -77,15 +77,20 @@ public class PageService extends HttpServlet {
 		String content = "";
 		try {
 			if (StringUtil.isNullOrEmpty(fuiPage.getHandler())) {
+				logger.info("without handler to html start " + url);
 				content = fuiPage.toHtml(paras);
+				logger.info("without handler to html end " + url);
 			} else {
 				PageHandler handler = HandlerFactory.instance().getHandler(fuiPage.getHandler());
 				if (handler != null) {
+					logger.info("with handler build data " + url);
 					PageData pd = handler.buildData(url, paras, request);
 					if (pd != null) {
 						paras.merge(pd.getPageData(url, paras));
 					}
+					logger.info("with handler build data end " + url);
 					content = fuiPage.toHtml(paras);
+					logger.info("with handler to html end " + url);
 				} else {
 					content = "handler " + fuiPage.getHandler() + " does not exists!";
 				}

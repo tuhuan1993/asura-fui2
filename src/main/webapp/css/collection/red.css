@@ -1,0 +1,19 @@
+a:hover,
+.nav li ul li a:hover { color: #8C2327; }
+
+#header{
+    background: #8C2327;
+}
+
+.nav li a { 
+	background: none; 
+}
+
+.button, .button:visited {
+	background-color: #8C2327; 
+}
+
+.button:hover { 
+	background-color: #570C10; 
+}
+
