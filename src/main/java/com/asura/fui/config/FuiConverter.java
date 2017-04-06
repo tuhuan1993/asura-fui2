@@ -19,6 +19,7 @@ import com.asura.fui.page.view.component.bootstrap.BootPageNoWrap;
 import com.asura.fui.page.view.component.bootstrap.BootPanel;
 import com.asura.fui.page.view.component.bootstrap.BootProgress;
 import com.asura.fui.page.view.component.bootstrap.BootTab;
+import com.asura.fui.page.view.component.bootstrap.SimpleCheckBox;
 import com.asura.fui.page.view.component.bootstrap.SimpleRadio;
 import com.asura.fui.page.view.component.custom.AlternateList;
 import com.asura.fui.page.view.component.custom.HeadElementList;
@@ -270,6 +271,10 @@ public class FuiConverter {
 		xs.alias("simple-radio", SimpleRadio.class);
 		xs.aliasAttribute(SimpleRadio.class, "click", "click");
 		xs.aliasAttribute(SimpleRadio.class, "ml", "ml");
+		
+		xs.alias("simple-checkbox", SimpleCheckBox.class);
+		xs.aliasAttribute(SimpleCheckBox.class, "click", "click");
+		xs.aliasAttribute(SimpleCheckBox.class, "ml", "ml");
 
 		xs.alias("boot-chart", BootChart.class);
 
